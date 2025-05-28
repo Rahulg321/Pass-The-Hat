@@ -1,0 +1,63 @@
+{
+  "id": "scroll_cards",
+  "type": "SharedSlice",
+  "name": "ScrollCards",
+  "description": "ScrollCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Cards",
+            "repeat": true,
+            "fields": {
+              "investor_quote": {
+                "type": "Text",
+                "config": {
+                  "label": "Investor Quote",
+                  "placeholder": ""
+                }
+              },
+              "investor_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Investor Name",
+                  "placeholder": ""
+                }
+              },
+              "investor_designation": {
+                "type": "Text",
+                "config": {
+                  "label": "Investor Designation",
+                  "placeholder": ""
+                }
+              },
+              "investor_rating": {
+                "type": "Number",
+                "config": {
+                  "label": "Investor Rating",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

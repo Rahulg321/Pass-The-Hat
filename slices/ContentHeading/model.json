@@ -1,0 +1,16 @@
+{
+  "id": "content_heading",
+  "type": "SharedSlice",
+  "name": "ContentHeading",
+  "description": "ContentHeading",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

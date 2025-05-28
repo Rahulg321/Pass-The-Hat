@@ -4,7 +4,11 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomepageDocumentDataSlicesSlice = never;
+type HomepageDocumentDataSlicesSlice =
+  | ContentHeadingSlice
+  | ReuseableCardsSlice
+  | RoundedImageContentSlice
+  | ScrollCardsSlice;
 
 /**
  * Content for Homepage documents
@@ -69,7 +73,365 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = HomepageDocument;
+type PageDocumentDataSlicesSlice =
+  | ContentHeadingSlice
+  | ReuseableCardsSlice
+  | RoundedImageContentSlice
+  | ScrollCardsSlice;
+
+/**
+ * Content for Page documents
+ */
+interface PageDocumentData {
+  /**
+   * Slice Zone field in *Page*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<PageDocumentDataSlicesSlice> /**
+   * Meta Title field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: page.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Page*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: page.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Page document from Prismic
+ *
+ * - **API ID**: `page`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PageDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
+
+export type AllDocumentTypes = HomepageDocument | PageDocument;
+
+/**
+ * Default variation for ContentHeading Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentHeadingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ContentHeading*
+ */
+type ContentHeadingSliceVariation = ContentHeadingSliceDefault;
+
+/**
+ * ContentHeading Shared Slice
+ *
+ * - **API ID**: `content_heading`
+ * - **Description**: ContentHeading
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentHeadingSlice = prismic.SharedSlice<
+  "content_heading",
+  ContentHeadingSliceVariation
+>;
+
+/**
+ * Item in *ReuseableCards → Default → Primary → Cards*
+ */
+export interface ReuseableCardsSliceDefaultPrimaryCardsItem {
+  /**
+   * Card Heading field in *ReuseableCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reuseable_cards.default.primary.cards[].card_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_heading: prismic.KeyTextField;
+
+  /**
+   * Card Description field in *ReuseableCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reuseable_cards.default.primary.cards[].card_description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ReuseableCards → Default → Primary*
+ */
+export interface ReuseableCardsSliceDefaultPrimary {
+  /**
+   * Heading field in *ReuseableCards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reuseable_cards.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Cards field in *ReuseableCards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reuseable_cards.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<
+    Simplify<ReuseableCardsSliceDefaultPrimaryCardsItem>
+  >;
+}
+
+/**
+ * Default variation for ReuseableCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReuseableCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ReuseableCardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ReuseableCards*
+ */
+type ReuseableCardsSliceVariation = ReuseableCardsSliceDefault;
+
+/**
+ * ReuseableCards Shared Slice
+ *
+ * - **API ID**: `reuseable_cards`
+ * - **Description**: ReuseableCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ReuseableCardsSlice = prismic.SharedSlice<
+  "reuseable_cards",
+  ReuseableCardsSliceVariation
+>;
+
+/**
+ * Primary content in *RoundedImageContent → Default → Primary*
+ */
+export interface RoundedImageContentSliceDefaultPrimary {
+  /**
+   * Heading field in *RoundedImageContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rounded_image_content.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *RoundedImageContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rounded_image_content.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *RoundedImageContent → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rounded_image_content.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Main Image field in *RoundedImageContent → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rounded_image_content.default.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for RoundedImageContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RoundedImageContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<RoundedImageContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *RoundedImageContent*
+ */
+type RoundedImageContentSliceVariation = RoundedImageContentSliceDefault;
+
+/**
+ * RoundedImageContent Shared Slice
+ *
+ * - **API ID**: `rounded_image_content`
+ * - **Description**: RoundedImageContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type RoundedImageContentSlice = prismic.SharedSlice<
+  "rounded_image_content",
+  RoundedImageContentSliceVariation
+>;
+
+/**
+ * Item in *ScrollCards → Default → Primary → Cards*
+ */
+export interface ScrollCardsSliceDefaultPrimaryCardsItem {
+  /**
+   * Investor Quote field in *ScrollCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_cards.default.primary.cards[].investor_quote
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  investor_quote: prismic.KeyTextField;
+
+  /**
+   * Investor Name field in *ScrollCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_cards.default.primary.cards[].investor_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  investor_name: prismic.KeyTextField;
+
+  /**
+   * Investor Designation field in *ScrollCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_cards.default.primary.cards[].investor_designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  investor_designation: prismic.KeyTextField;
+
+  /**
+   * Investor Rating field in *ScrollCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_cards.default.primary.cards[].investor_rating
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  investor_rating: prismic.NumberField;
+}
+
+/**
+ * Primary content in *ScrollCards → Default → Primary*
+ */
+export interface ScrollCardsSliceDefaultPrimary {
+  /**
+   * Heading field in *ScrollCards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_cards.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Cards field in *ScrollCards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: scroll_cards.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<Simplify<ScrollCardsSliceDefaultPrimaryCardsItem>>;
+}
+
+/**
+ * Default variation for ScrollCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScrollCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ScrollCardsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ScrollCards*
+ */
+type ScrollCardsSliceVariation = ScrollCardsSliceDefault;
+
+/**
+ * ScrollCards Shared Slice
+ *
+ * - **API ID**: `scroll_cards`
+ * - **Description**: ScrollCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ScrollCardsSlice = prismic.SharedSlice<
+  "scroll_cards",
+  ScrollCardsSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -95,7 +457,27 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      PageDocument,
+      PageDocumentData,
+      PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ContentHeadingSlice,
+      ContentHeadingSliceVariation,
+      ContentHeadingSliceDefault,
+      ReuseableCardsSlice,
+      ReuseableCardsSliceDefaultPrimaryCardsItem,
+      ReuseableCardsSliceDefaultPrimary,
+      ReuseableCardsSliceVariation,
+      ReuseableCardsSliceDefault,
+      RoundedImageContentSlice,
+      RoundedImageContentSliceDefaultPrimary,
+      RoundedImageContentSliceVariation,
+      RoundedImageContentSliceDefault,
+      ScrollCardsSlice,
+      ScrollCardsSliceDefaultPrimaryCardsItem,
+      ScrollCardsSliceDefaultPrimary,
+      ScrollCardsSliceVariation,
+      ScrollCardsSliceDefault,
     };
   }
 }

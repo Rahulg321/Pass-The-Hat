@@ -2,4 +2,9 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {};
+export const components = {
+  content_heading: dynamic(() => import("./ContentHeading")),
+  reuseable_cards: dynamic(() => import("./ReuseableCards")),
+  rounded_image_content: dynamic(() => import("./RoundedImageContent")),
+  scroll_cards: dynamic(() => import("./ScrollCards")),
+};

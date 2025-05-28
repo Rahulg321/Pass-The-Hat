@@ -1,0 +1,56 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "paint",
+				"type": "Text"
+			},
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"investor_quote",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "were",
+									"type": "Text"
+								}
+							],
+							[
+								"investor_name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "heading",
+									"type": "Text"
+								}
+							],
+							[
+								"investor_designation",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "bear",
+									"type": "Text"
+								}
+							],
+							[
+								"investor_rating",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "25",
+									"type": "Number"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
