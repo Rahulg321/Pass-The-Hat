@@ -2,7 +2,42 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"main_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Consequat enim nostrud laboris enim occaecat excepteur sit irure esse id dolore officia. Lorem incididunt do laborum enim laboris sint amet in et excepteur."
+						}
+					}
+				]
+			}
+		},
 		"items": []
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "contentNarrowContainer",
+		"primary": {
+			"main_content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Officia sint ad laboris fugiat. Lorem nisi laboris sunt adipisicing aliqua occaecat esse aute culpa commodo ea irure nostrud ea."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": []
+			}
+		]
 	}
 ]

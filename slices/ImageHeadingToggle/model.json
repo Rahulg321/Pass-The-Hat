@@ -1,0 +1,16 @@
+{
+  "id": "image_heading_toggle",
+  "type": "SharedSlice",
+  "name": "ImageHeadingToggle",
+  "description": "ImageHeadingToggle",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

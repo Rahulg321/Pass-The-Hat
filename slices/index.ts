@@ -4,7 +4,9 @@ import dynamic from "next/dynamic";
 
 export const components = {
   content_heading: dynamic(() => import("./ContentHeading")),
+  image_heading_toggle: dynamic(() => import("./ImageHeadingToggle")),
   reuseable_cards: dynamic(() => import("./ReuseableCards")),
   rounded_image_content: dynamic(() => import("./RoundedImageContent")),
   scroll_cards: dynamic(() => import("./ScrollCards")),
+  side_heading_content: dynamic(() => import("./SideHeadingContent")),
 };

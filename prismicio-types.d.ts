@@ -5,6 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | SideHeadingContentSlice
+  | ImageHeadingToggleSlice
   | ContentHeadingSlice
   | ReuseableCardsSlice
   | RoundedImageContentSlice
@@ -74,6 +76,8 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | SideHeadingContentSlice
+  | ImageHeadingToggleSlice
   | ContentHeadingSlice
   | ReuseableCardsSlice
   | RoundedImageContentSlice
@@ -141,6 +145,21 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomepageDocument | PageDocument;
 
 /**
+ * Primary content in *ContentHeading → Default → Primary*
+ */
+export interface ContentHeadingSliceDefaultPrimary {
+  /**
+   * Main Content field in *ContentHeading → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_heading.default.primary.main_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_content: prismic.RichTextField;
+}
+
+/**
  * Default variation for ContentHeading Slice
  *
  * - **API ID**: `default`
@@ -149,14 +168,45 @@ export type AllDocumentTypes = HomepageDocument | PageDocument;
  */
 export type ContentHeadingSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ContentHeadingSliceDefaultPrimary>,
   never
 >;
 
 /**
+ * Primary content in *ContentHeading → Content Narrow Container → Primary*
+ */
+export interface ContentHeadingSliceContentNarrowContainerPrimary {
+  /**
+   * Main Content field in *ContentHeading → Content Narrow Container → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_heading.contentNarrowContainer.primary.main_content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  main_content: prismic.RichTextField;
+}
+
+/**
+ * Content Narrow Container variation for ContentHeading Slice
+ *
+ * - **API ID**: `contentNarrowContainer`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContentHeadingSliceContentNarrowContainer =
+  prismic.SharedSliceVariation<
+    "contentNarrowContainer",
+    Simplify<ContentHeadingSliceContentNarrowContainerPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *ContentHeading*
  */
-type ContentHeadingSliceVariation = ContentHeadingSliceDefault;
+type ContentHeadingSliceVariation =
+  | ContentHeadingSliceDefault
+  | ContentHeadingSliceContentNarrowContainer;
 
 /**
  * ContentHeading Shared Slice
@@ -168,6 +218,36 @@ type ContentHeadingSliceVariation = ContentHeadingSliceDefault;
 export type ContentHeadingSlice = prismic.SharedSlice<
   "content_heading",
   ContentHeadingSliceVariation
+>;
+
+/**
+ * Default variation for ImageHeadingToggle Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageHeadingToggleSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageHeadingToggle*
+ */
+type ImageHeadingToggleSliceVariation = ImageHeadingToggleSliceDefault;
+
+/**
+ * ImageHeadingToggle Shared Slice
+ *
+ * - **API ID**: `image_heading_toggle`
+ * - **Description**: ImageHeadingToggle
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageHeadingToggleSlice = prismic.SharedSlice<
+  "image_heading_toggle",
+  ImageHeadingToggleSliceVariation
 >;
 
 /**
@@ -433,6 +513,36 @@ export type ScrollCardsSlice = prismic.SharedSlice<
   ScrollCardsSliceVariation
 >;
 
+/**
+ * Default variation for SideHeadingContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SideHeadingContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *SideHeadingContent*
+ */
+type SideHeadingContentSliceVariation = SideHeadingContentSliceDefault;
+
+/**
+ * SideHeadingContent Shared Slice
+ *
+ * - **API ID**: `side_heading_content`
+ * - **Description**: SideHeadingContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SideHeadingContentSlice = prismic.SharedSlice<
+  "side_heading_content",
+  SideHeadingContentSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -462,8 +572,14 @@ declare module "@prismicio/client" {
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
       ContentHeadingSlice,
+      ContentHeadingSliceDefaultPrimary,
+      ContentHeadingSliceContentNarrowContainerPrimary,
       ContentHeadingSliceVariation,
       ContentHeadingSliceDefault,
+      ContentHeadingSliceContentNarrowContainer,
+      ImageHeadingToggleSlice,
+      ImageHeadingToggleSliceVariation,
+      ImageHeadingToggleSliceDefault,
       ReuseableCardsSlice,
       ReuseableCardsSliceDefaultPrimaryCardsItem,
       ReuseableCardsSliceDefaultPrimary,
@@ -478,6 +594,9 @@ declare module "@prismicio/client" {
       ScrollCardsSliceDefaultPrimary,
       ScrollCardsSliceVariation,
       ScrollCardsSliceDefault,
+      SideHeadingContentSlice,
+      SideHeadingContentSliceVariation,
+      SideHeadingContentSliceDefault,
     };
   }
 }
