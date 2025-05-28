@@ -1,0 +1,18 @@
+{
+  "id": "story_testimonials",
+  "type": "SharedSlice",
+  "name": "StoryTestimonials",
+  "description": "StoryTestimonials",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

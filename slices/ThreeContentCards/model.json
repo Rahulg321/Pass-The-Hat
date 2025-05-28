@@ -1,0 +1,18 @@
+{
+  "id": "three_content_cards",
+  "type": "SharedSlice",
+  "name": "ThreeContentCards",
+  "description": "ThreeContentCards",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

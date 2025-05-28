@@ -24,9 +24,7 @@ const SideHeadingContent: FC<SideHeadingContentProps> = ({ slice }) => {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 xl:gap-20 items-start">
           {/* Left Column - Heading */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight">
-              Your New Alternative Investment Platform
-            </h1>
+            <h1 className="">Your New Alternative Investment Platform</h1>
           </div>
 
           {/* Right Column - Content */}

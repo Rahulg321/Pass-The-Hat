@@ -5,6 +5,13 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | HeroImageBackgroundSlice
+  | StoryTestimonialsSlice
+  | MeetTeamSlice
+  | InvestmentHeroSlice
+  | ThreeContentCardsSlice
+  | ThreeRoundImagesSlice
+  | MutedBackgroundContentSlice
   | SideHeadingContentSlice
   | ImageHeadingToggleSlice
   | ContentHeadingSlice
@@ -76,6 +83,13 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | HeroImageBackgroundSlice
+  | StoryTestimonialsSlice
+  | MeetTeamSlice
+  | InvestmentHeroSlice
+  | ThreeContentCardsSlice
+  | ThreeRoundImagesSlice
+  | MutedBackgroundContentSlice
   | SideHeadingContentSlice
   | ImageHeadingToggleSlice
   | ContentHeadingSlice
@@ -221,6 +235,51 @@ export type ContentHeadingSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *HeroImageBackground → Default → Primary*
+ */
+export interface HeroImageBackgroundSliceDefaultPrimary {
+  /**
+   * Background Image field in *HeroImageBackground → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_image_background.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for HeroImageBackground Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroImageBackgroundSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroImageBackgroundSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroImageBackground*
+ */
+type HeroImageBackgroundSliceVariation = HeroImageBackgroundSliceDefault;
+
+/**
+ * HeroImageBackground Shared Slice
+ *
+ * - **API ID**: `hero_image_background`
+ * - **Description**: HeroImageBackground
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroImageBackgroundSlice = prismic.SharedSlice<
+  "hero_image_background",
+  HeroImageBackgroundSliceVariation
+>;
+
+/**
  * Default variation for ImageHeadingToggle Slice
  *
  * - **API ID**: `default`
@@ -248,6 +307,111 @@ type ImageHeadingToggleSliceVariation = ImageHeadingToggleSliceDefault;
 export type ImageHeadingToggleSlice = prismic.SharedSlice<
   "image_heading_toggle",
   ImageHeadingToggleSliceVariation
+>;
+
+/**
+ * Primary content in *InvestmentHero → Default → Primary*
+ */
+export interface InvestmentHeroSliceDefaultPrimary {
+  /**
+   * Background Image field in *InvestmentHero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: investment_hero.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for InvestmentHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InvestmentHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InvestmentHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InvestmentHero*
+ */
+type InvestmentHeroSliceVariation = InvestmentHeroSliceDefault;
+
+/**
+ * InvestmentHero Shared Slice
+ *
+ * - **API ID**: `investment_hero`
+ * - **Description**: InvestmentHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InvestmentHeroSlice = prismic.SharedSlice<
+  "investment_hero",
+  InvestmentHeroSliceVariation
+>;
+
+/**
+ * Default variation for MeetTeam Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MeetTeamSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *MeetTeam*
+ */
+type MeetTeamSliceVariation = MeetTeamSliceDefault;
+
+/**
+ * MeetTeam Shared Slice
+ *
+ * - **API ID**: `meet_team`
+ * - **Description**: MeetTeam
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MeetTeamSlice = prismic.SharedSlice<
+  "meet_team",
+  MeetTeamSliceVariation
+>;
+
+/**
+ * Default variation for MutedBackgroundContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MutedBackgroundContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *MutedBackgroundContent*
+ */
+type MutedBackgroundContentSliceVariation = MutedBackgroundContentSliceDefault;
+
+/**
+ * MutedBackgroundContent Shared Slice
+ *
+ * - **API ID**: `muted_background_content`
+ * - **Description**: MutedBackgroundContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MutedBackgroundContentSlice = prismic.SharedSlice<
+  "muted_background_content",
+  MutedBackgroundContentSliceVariation
 >;
 
 /**
@@ -543,6 +707,96 @@ export type SideHeadingContentSlice = prismic.SharedSlice<
   SideHeadingContentSliceVariation
 >;
 
+/**
+ * Default variation for StoryTestimonials Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryTestimonialsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *StoryTestimonials*
+ */
+type StoryTestimonialsSliceVariation = StoryTestimonialsSliceDefault;
+
+/**
+ * StoryTestimonials Shared Slice
+ *
+ * - **API ID**: `story_testimonials`
+ * - **Description**: StoryTestimonials
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StoryTestimonialsSlice = prismic.SharedSlice<
+  "story_testimonials",
+  StoryTestimonialsSliceVariation
+>;
+
+/**
+ * Default variation for ThreeContentCards Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeContentCardsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ThreeContentCards*
+ */
+type ThreeContentCardsSliceVariation = ThreeContentCardsSliceDefault;
+
+/**
+ * ThreeContentCards Shared Slice
+ *
+ * - **API ID**: `three_content_cards`
+ * - **Description**: ThreeContentCards
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeContentCardsSlice = prismic.SharedSlice<
+  "three_content_cards",
+  ThreeContentCardsSliceVariation
+>;
+
+/**
+ * Default variation for ThreeRoundImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeRoundImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *ThreeRoundImages*
+ */
+type ThreeRoundImagesSliceVariation = ThreeRoundImagesSliceDefault;
+
+/**
+ * ThreeRoundImages Shared Slice
+ *
+ * - **API ID**: `three_round_images`
+ * - **Description**: ThreeRoundImages
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeRoundImagesSlice = prismic.SharedSlice<
+  "three_round_images",
+  ThreeRoundImagesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -577,9 +831,23 @@ declare module "@prismicio/client" {
       ContentHeadingSliceVariation,
       ContentHeadingSliceDefault,
       ContentHeadingSliceContentNarrowContainer,
+      HeroImageBackgroundSlice,
+      HeroImageBackgroundSliceDefaultPrimary,
+      HeroImageBackgroundSliceVariation,
+      HeroImageBackgroundSliceDefault,
       ImageHeadingToggleSlice,
       ImageHeadingToggleSliceVariation,
       ImageHeadingToggleSliceDefault,
+      InvestmentHeroSlice,
+      InvestmentHeroSliceDefaultPrimary,
+      InvestmentHeroSliceVariation,
+      InvestmentHeroSliceDefault,
+      MeetTeamSlice,
+      MeetTeamSliceVariation,
+      MeetTeamSliceDefault,
+      MutedBackgroundContentSlice,
+      MutedBackgroundContentSliceVariation,
+      MutedBackgroundContentSliceDefault,
       ReuseableCardsSlice,
       ReuseableCardsSliceDefaultPrimaryCardsItem,
       ReuseableCardsSliceDefaultPrimary,
@@ -597,6 +865,15 @@ declare module "@prismicio/client" {
       SideHeadingContentSlice,
       SideHeadingContentSliceVariation,
       SideHeadingContentSliceDefault,
+      StoryTestimonialsSlice,
+      StoryTestimonialsSliceVariation,
+      StoryTestimonialsSliceDefault,
+      ThreeContentCardsSlice,
+      ThreeContentCardsSliceVariation,
+      ThreeContentCardsSliceDefault,
+      ThreeRoundImagesSlice,
+      ThreeRoundImagesSliceVariation,
+      ThreeRoundImagesSliceDefault,
     };
   }
 }

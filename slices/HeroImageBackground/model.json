@@ -1,0 +1,27 @@
+{
+  "id": "hero_image_background",
+  "type": "SharedSlice",
+  "name": "HeroImageBackground",
+  "description": "HeroImageBackground",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

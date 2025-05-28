@@ -1,0 +1,16 @@
+{
+  "id": "three_round_images",
+  "type": "SharedSlice",
+  "name": "ThreeRoundImages",
+  "description": "ThreeRoundImages",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

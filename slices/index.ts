@@ -4,9 +4,16 @@ import dynamic from "next/dynamic";
 
 export const components = {
   content_heading: dynamic(() => import("./ContentHeading")),
+  hero_image_background: dynamic(() => import("./HeroImageBackground")),
   image_heading_toggle: dynamic(() => import("./ImageHeadingToggle")),
+  investment_hero: dynamic(() => import("./InvestmentHero")),
+  meet_team: dynamic(() => import("./MeetTeam")),
+  muted_background_content: dynamic(() => import("./MutedBackgroundContent")),
   reuseable_cards: dynamic(() => import("./ReuseableCards")),
   rounded_image_content: dynamic(() => import("./RoundedImageContent")),
   scroll_cards: dynamic(() => import("./ScrollCards")),
   side_heading_content: dynamic(() => import("./SideHeadingContent")),
+  story_testimonials: dynamic(() => import("./StoryTestimonials")),
+  three_content_cards: dynamic(() => import("./ThreeContentCards")),
+  three_round_images: dynamic(() => import("./ThreeRoundImages")),
 };

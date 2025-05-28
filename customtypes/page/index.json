@@ -17,6 +17,27 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "hero_image_background": {
+              "type": "SharedSlice"
+            },
+            "story_testimonials": {
+              "type": "SharedSlice"
+            },
+            "meet_team": {
+              "type": "SharedSlice"
+            },
+            "investment_hero": {
+              "type": "SharedSlice"
+            },
+            "three_content_cards": {
+              "type": "SharedSlice"
+            },
+            "three_round_images": {
+              "type": "SharedSlice"
+            },
+            "muted_background_content": {
+              "type": "SharedSlice"
+            },
             "side_heading_content": {
               "type": "SharedSlice"
             },
