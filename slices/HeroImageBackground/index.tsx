@@ -1,8 +1,10 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicLink, SliceComponentProps } from "@prismicio/react";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Button } from "@/components/ui/button";
+import Heading from "@/components/Heading";
+import Link from "next/link";
 
 export type HeroImageBackgroundProps =
   SliceComponentProps<Content.HeroImageBackgroundSlice>;
@@ -12,7 +14,7 @@ const HeroImageBackground: FC<HeroImageBackgroundProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[80vh] flex items-center overflow-hidden"
     >
       <PrismicNextImage
         field={slice.primary.background_image}
@@ -22,29 +24,12 @@ const HeroImageBackground: FC<HeroImageBackgroundProps> = ({ slice }) => {
       />
 
       <div className="relative z-20 big-container">
-        <div className="max-w-2xl">
-          <h1 className="">Transform Your</h1>
+        <div className="max-w-2xl space-y-4 md:space-y-6">
+          <Heading size="md">{slice.primary.heading}</Heading>
 
-          <p className="">
-            Discover innovative solutions that drive growth, enhance
-            productivity, and unlock your business potential in the digital age.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              Get Started Today
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300"
-            >
-              Learn More
-            </Button>
-          </div>
+          <Heading size="xs" className="font-normal text-primary">
+            {slice.primary.tagline}
+          </Heading>
         </div>
       </div>
     </section>

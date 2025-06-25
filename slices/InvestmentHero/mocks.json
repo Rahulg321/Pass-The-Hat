@@ -4,7 +4,6 @@
 		"variation": "default",
 		"primary": {
 			"background_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
@@ -23,6 +22,72 @@
 					"background": "transparent"
 				},
 				"alt": "pour",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "tune",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cupidatat pariatur Lorem eu id culpa fugiat esse sit. Ipsum in qui dolore est consequat eu duis eiusmod sint excepteur."
+						}
+					}
+				]
+			},
+			"pdf_guide": {
+				"key": "a57ff6a9-4dcd-4c76-a36c-6c2d78839633",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "automobile"
+				}
+			},
+			"guide_image": {
+				"key": "3d7a48f6-5fa9-4986-b6d9-d219f217e1ee",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "proud"
+				}
+			},
+			"featured_image": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+					"width": 3456,
+					"height": 4320
+				},
+				"url": "https://images.unsplash.com/photo-1551739440-5dd934d3a94a",
+				"width": 3456,
+				"height": 4320,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "birth",
 				"thumbnails": {}
 			}
 		},

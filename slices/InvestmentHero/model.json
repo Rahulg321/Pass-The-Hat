@@ -19,6 +19,48 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "content": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Content",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "pdf_guide": {
+          "type": "Link",
+          "config": {
+            "label": "PDF GUIDE",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        },
+        "guide_image": {
+          "type": "Link",
+          "config": {
+            "label": "Guide Image",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        },
+        "featured_image": {
+          "type": "Image",
+          "config": {
+            "label": "Featured Image",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
