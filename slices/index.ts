@@ -16,4 +16,5 @@ export const components = {
   story_testimonials: dynamic(() => import("./StoryTestimonials")),
   three_content_cards: dynamic(() => import("./ThreeContentCards")),
   three_round_images: dynamic(() => import("./ThreeRoundImages")),
+  updated_hero_section: dynamic(() => import("./UpdatedHeroSection")),
 };

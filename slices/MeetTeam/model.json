@@ -11,7 +11,62 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "teams": {
+          "type": "Group",
+          "config": {
+            "label": "Teams",
+            "repeat": true,
+            "fields": {
+              "person_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Person Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "person_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Person Name",
+                  "placeholder": ""
+                }
+              },
+              "person_designation": {
+                "type": "Text",
+                "config": {
+                  "label": "Person Designation",
+                  "placeholder": ""
+                }
+              },
+              "person_company": {
+                "type": "Text",
+                "config": {
+                  "label": "Person Company",
+                  "placeholder": ""
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Content",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        }
+      },
       "items": {}
     }
   ]

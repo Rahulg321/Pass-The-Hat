@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomepageDocumentDataSlicesSlice =
+  | UpdatedHeroSectionSlice
   | HeroImageBackgroundSlice
   | StoryTestimonialsSlice
   | MeetTeamSlice
@@ -83,6 +84,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | UpdatedHeroSectionSlice
   | HeroImageBackgroundSlice
   | StoryTestimonialsSlice
   | MeetTeamSlice
@@ -441,6 +443,86 @@ export type InvestmentHeroSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *MeetTeam → Default → Primary → Teams*
+ */
+export interface MeetTeamSliceDefaultPrimaryTeamsItem {
+  /**
+   * Person Image field in *MeetTeam → Default → Primary → Teams*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.teams[].person_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  person_image: prismic.ImageField<never>;
+
+  /**
+   * Person Name field in *MeetTeam → Default → Primary → Teams*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.teams[].person_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  person_name: prismic.KeyTextField;
+
+  /**
+   * Person Designation field in *MeetTeam → Default → Primary → Teams*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.teams[].person_designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  person_designation: prismic.KeyTextField;
+
+  /**
+   * Person Company field in *MeetTeam → Default → Primary → Teams*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.teams[].person_company
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  person_company: prismic.KeyTextField;
+
+  /**
+   * Content field in *MeetTeam → Default → Primary → Teams*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.teams[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *MeetTeam → Default → Primary*
+ */
+export interface MeetTeamSliceDefaultPrimary {
+  /**
+   * Teams field in *MeetTeam → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.teams[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  teams: prismic.GroupField<Simplify<MeetTeamSliceDefaultPrimaryTeamsItem>>;
+
+  /**
+   * Heading field in *MeetTeam → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: meet_team.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
  * Default variation for MeetTeam Slice
  *
  * - **API ID**: `default`
@@ -449,7 +531,7 @@ export type InvestmentHeroSlice = prismic.SharedSlice<
  */
 export type MeetTeamSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<MeetTeamSliceDefaultPrimary>,
   never
 >;
 
@@ -794,6 +876,61 @@ export type SideHeadingContentSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *StoryTestimonials → Default → Primary*
+ */
+export interface StoryTestimonialsSliceDefaultPrimary {
+  /**
+   * Heading field in *StoryTestimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_testimonials.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Content field in *StoryTestimonials → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_testimonials.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Founder Name field in *StoryTestimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_testimonials.default.primary.founder_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  founder_name: prismic.KeyTextField;
+
+  /**
+   * Founder Designation field in *StoryTestimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_testimonials.default.primary.founder_designation
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  founder_designation: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *StoryTestimonials → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: story_testimonials.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+}
+
+/**
  * Default variation for StoryTestimonials Slice
  *
  * - **API ID**: `default`
@@ -802,7 +939,7 @@ export type SideHeadingContentSlice = prismic.SharedSlice<
  */
 export type StoryTestimonialsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<StoryTestimonialsSliceDefaultPrimary>,
   never
 >;
 
@@ -883,6 +1020,107 @@ export type ThreeRoundImagesSlice = prismic.SharedSlice<
   ThreeRoundImagesSliceVariation
 >;
 
+/**
+ * Primary content in *UpdatedHeroSection → Default → Primary*
+ */
+export interface UpdatedHeroSectionSliceDefaultPrimary {
+  /**
+   * Background Image field in *UpdatedHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: updated_hero_section.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *UpdatedHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: updated_hero_section.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *UpdatedHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: updated_hero_section.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Content field in *UpdatedHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: updated_hero_section.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Button Link field in *UpdatedHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: updated_hero_section.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Title field in *UpdatedHeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: updated_hero_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for UpdatedHeroSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UpdatedHeroSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<UpdatedHeroSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *UpdatedHeroSection*
+ */
+type UpdatedHeroSectionSliceVariation = UpdatedHeroSectionSliceDefault;
+
+/**
+ * UpdatedHeroSection Shared Slice
+ *
+ * - **API ID**: `updated_hero_section`
+ * - **Description**: UpdatedHeroSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type UpdatedHeroSectionSlice = prismic.SharedSlice<
+  "updated_hero_section",
+  UpdatedHeroSectionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -929,6 +1167,8 @@ declare module "@prismicio/client" {
       InvestmentHeroSliceVariation,
       InvestmentHeroSliceDefault,
       MeetTeamSlice,
+      MeetTeamSliceDefaultPrimaryTeamsItem,
+      MeetTeamSliceDefaultPrimary,
       MeetTeamSliceVariation,
       MeetTeamSliceDefault,
       MutedBackgroundContentSlice,
@@ -952,6 +1192,7 @@ declare module "@prismicio/client" {
       SideHeadingContentSliceVariation,
       SideHeadingContentSliceDefault,
       StoryTestimonialsSlice,
+      StoryTestimonialsSliceDefaultPrimary,
       StoryTestimonialsSliceVariation,
       StoryTestimonialsSliceDefault,
       ThreeContentCardsSlice,
@@ -960,6 +1201,10 @@ declare module "@prismicio/client" {
       ThreeRoundImagesSlice,
       ThreeRoundImagesSliceVariation,
       ThreeRoundImagesSliceDefault,
+      UpdatedHeroSectionSlice,
+      UpdatedHeroSectionSliceDefaultPrimary,
+      UpdatedHeroSectionSliceVariation,
+      UpdatedHeroSectionSliceDefault,
     };
   }
 }

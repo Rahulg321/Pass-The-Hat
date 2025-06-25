@@ -1,8 +1,8 @@
 {
-  "id": "story_testimonials",
+  "id": "updated_hero_section",
   "type": "SharedSlice",
-  "name": "StoryTestimonials",
-  "description": "StoryTestimonials",
+  "name": "UpdatedHeroSection",
+  "description": "UpdatedHeroSection",
   "variations": [
     {
       "id": "default",
@@ -12,10 +12,25 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "heading": {
           "type": "Text",
           "config": {
             "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
             "placeholder": ""
           }
         },
@@ -28,24 +43,21 @@
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         },
-        "founder_name": {
-          "type": "Text",
+        "button_link": {
+          "type": "Link",
           "config": {
-            "label": "Founder Name",
-            "placeholder": ""
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
           }
         },
-        "founder_designation": {
+        "title": {
           "type": "Text",
           "config": {
-            "label": "Founder Designation",
-            "placeholder": ""
-          }
-        },
-        "tagline": {
-          "type": "Text",
-          "config": {
-            "label": "Tagline",
+            "label": "Title",
             "placeholder": ""
           }
         }

@@ -9,15 +9,9 @@ import { Download } from "lucide-react";
 import Heading from "@/components/Heading";
 import Link from "next/link";
 
-/**
- * Props for `InvestmentHero`.
- */
 export type InvestmentHeroProps =
   SliceComponentProps<Content.InvestmentHeroSlice>;
 
-/**
- * Component for "InvestmentHero" Slices.
- */
 const InvestmentHero: FC<InvestmentHeroProps> = ({ slice }) => {
   return (
     <section
