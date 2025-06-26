@@ -20,7 +20,6 @@ export default function Header() {
     { name: "Investment Process", href: "/investment-process" },
     { name: "Track Record", href: "/track-record" },
     { name: "Offerings", href: "/offerings" },
-    { name: "Contact Us", href: "/contact" },
   ];
 
   useEffect(() => {
