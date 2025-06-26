@@ -67,7 +67,7 @@ const StoryTestimonials: FC<StoryTestimonialsProps> = ({ slice }) => {
 
         {/* Main Heading */}
         <div className="text-center mb-12 animate-fade-in-up animation-delay-300">
-          <Heading size="md" className="text-[#19124B] font-bold">
+          <Heading size="sm" className="text-dark-blue font-bold">
             {slice.primary.heading}
           </Heading>
         </div>

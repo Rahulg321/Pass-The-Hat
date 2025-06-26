@@ -41,7 +41,7 @@ const InvestmentHero: FC<InvestmentHeroProps> = ({ slice }) => {
               </div>
 
               <div className="space-y-6 flex-1 flex flex-col">
-                <Heading size="xs" as="h2">
+                <Heading size="xs" as="h2" className="text-dark-blue">
                   {slice.primary.heading}
                 </Heading>
 

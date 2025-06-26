@@ -2,7 +2,24 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Proident qui laborum laboris veniam velit ea elit laborum do fugiat. Eu laboris exercitation cupidatat consectetur non nisi quis pariatur qui esse."
+						}
+					}
+				]
+			},
+			"author": {
+				"__TYPE__": "FieldContent",
+				"value": "ranch",
+				"type": "Text"
+			}
+		},
 		"items": []
 	}
 ]

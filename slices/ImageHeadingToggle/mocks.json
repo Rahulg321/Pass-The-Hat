@@ -2,7 +2,73 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "aboard",
+				"type": "Text"
+			},
+			"tagline": {
+				"__TYPE__": "FieldContent",
+				"value": "snow",
+				"type": "Text"
+			},
+			"faq": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"question",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "nest",
+									"type": "Text"
+								}
+							],
+							[
+								"answer",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ipsum sint nulla sunt sunt duis eu ad minim proident sit anim. Sint aute irure labore cillum amet cupidatat id cupidatat veniam."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"featured_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+					"width": 12288,
+					"height": 16384
+				},
+				"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+				"width": 12288,
+				"height": 16384,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "printed",
+				"credits": null,
+				"__TYPE__": "ImageContent",
+				"thumbnails": {}
+			}
+		},
 		"items": []
 	}
 ]

@@ -34,7 +34,7 @@ const ScrollCards: FC<ScrollCardsProps> = ({ slice }) => {
       className="block-space"
     >
       <div className="extra-big-container">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+        <h2 className="font-bold text-center text-dark-blue mb-16">
           Just a Few Happy Investors
         </h2>
 
@@ -48,7 +48,7 @@ const ScrollCards: FC<ScrollCardsProps> = ({ slice }) => {
                 {renderStars(Number(card.investor_rating))}
               </div>
 
-              <blockquote className="text-gray-600 text-lg leading-relaxed mb-8 flex-grow">
+              <blockquote className="text-gray-600 text-base leading-relaxed mb-8 flex-grow">
                 &quot;{card.investor_quote}&quot;
               </blockquote>
 

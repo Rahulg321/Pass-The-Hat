@@ -11,7 +11,53 @@
       "version": "initial",
       "description": "Default",
       "imageUrl": "",
-      "primary": {},
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "cards": {
+          "type": "Group",
+          "config": {
+            "label": "Cards",
+            "repeat": true,
+            "fields": {
+              "heading": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading",
+                  "placeholder": ""
+                }
+              },
+              "content": {
+                "type": "Text",
+                "config": {
+                  "label": "Content",
+                  "placeholder": ""
+                }
+              },
+              "card_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Card Image",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
       "items": {}
     }
   ]

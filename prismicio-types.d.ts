@@ -318,6 +318,78 @@ export type HeroImageBackgroundSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ImageHeadingToggle → Default → Primary → faq*
+ */
+export interface ImageHeadingToggleSliceDefaultPrimaryFaqItem {
+  /**
+   * Question field in *ImageHeadingToggle → Default → Primary → faq*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_heading_toggle.default.primary.faq[].question
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  question: prismic.KeyTextField;
+
+  /**
+   * Answer field in *ImageHeadingToggle → Default → Primary → faq*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_heading_toggle.default.primary.faq[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *ImageHeadingToggle → Default → Primary*
+ */
+export interface ImageHeadingToggleSliceDefaultPrimary {
+  /**
+   * Featured Image field in *ImageHeadingToggle → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_heading_toggle.default.primary.featured_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  featured_image: prismic.ImageField<never>;
+
+  /**
+   * Heading field in *ImageHeadingToggle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_heading_toggle.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ImageHeadingToggle → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_heading_toggle.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * faq field in *ImageHeadingToggle → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_heading_toggle.default.primary.faq[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  faq: prismic.GroupField<
+    Simplify<ImageHeadingToggleSliceDefaultPrimaryFaqItem>
+  >;
+}
+
+/**
  * Default variation for ImageHeadingToggle Slice
  *
  * - **API ID**: `default`
@@ -326,7 +398,7 @@ export type HeroImageBackgroundSlice = prismic.SharedSlice<
  */
 export type ImageHeadingToggleSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ImageHeadingToggleSliceDefaultPrimary>,
   never
 >;
 
@@ -553,6 +625,31 @@ export type MeetTeamSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *MutedBackgroundContent → Default → Primary*
+ */
+export interface MutedBackgroundContentSliceDefaultPrimary {
+  /**
+   * Content field in *MutedBackgroundContent → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: muted_background_content.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Author field in *MutedBackgroundContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: muted_background_content.default.primary.author
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  author: prismic.KeyTextField;
+}
+
+/**
  * Default variation for MutedBackgroundContent Slice
  *
  * - **API ID**: `default`
@@ -561,7 +658,7 @@ export type MeetTeamSlice = prismic.SharedSlice<
  */
 export type MutedBackgroundContentSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<MutedBackgroundContentSliceDefaultPrimary>,
   never
 >;
 
@@ -846,6 +943,47 @@ export type ScrollCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *SideHeadingContent → Default → Primary*
+ */
+export interface SideHeadingContentSliceDefaultPrimary {
+  /**
+   * Heading field in *SideHeadingContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_heading_content.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Content field in *SideHeadingContent → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_heading_content.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
+   * Button Link field in *SideHeadingContent → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: side_heading_content.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
  * Default variation for SideHeadingContent Slice
  *
  * - **API ID**: `default`
@@ -854,7 +992,7 @@ export type ScrollCardsSlice = prismic.SharedSlice<
  */
 export type SideHeadingContentSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<SideHeadingContentSliceDefaultPrimary>,
   never
 >;
 
@@ -961,6 +1099,78 @@ export type StoryTestimonialsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ThreeContentCards → Default → Primary → Cards*
+ */
+export interface ThreeContentCardsSliceDefaultPrimaryCardsItem {
+  /**
+   * Heading field in *ThreeContentCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_content_cards.default.primary.cards[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Content field in *ThreeContentCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_content_cards.default.primary.cards[].content
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  content: prismic.KeyTextField;
+
+  /**
+   * Card Image field in *ThreeContentCards → Default → Primary → Cards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_content_cards.default.primary.cards[].card_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ThreeContentCards → Default → Primary*
+ */
+export interface ThreeContentCardsSliceDefaultPrimary {
+  /**
+   * Heading field in *ThreeContentCards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_content_cards.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Tagline field in *ThreeContentCards → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_content_cards.default.primary.tagline
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tagline: prismic.KeyTextField;
+
+  /**
+   * Cards field in *ThreeContentCards → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_content_cards.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<
+    Simplify<ThreeContentCardsSliceDefaultPrimaryCardsItem>
+  >;
+}
+
+/**
  * Default variation for ThreeContentCards Slice
  *
  * - **API ID**: `default`
@@ -969,7 +1179,7 @@ export type StoryTestimonialsSlice = prismic.SharedSlice<
  */
 export type ThreeContentCardsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ThreeContentCardsSliceDefaultPrimary>,
   never
 >;
 
@@ -991,6 +1201,74 @@ export type ThreeContentCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *ThreeRoundImages → Default → Primary → cards*
+ */
+export interface ThreeRoundImagesSliceDefaultPrimaryCardsItem {
+  /**
+   * Card Image field in *ThreeRoundImages → Default → Primary → cards*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_round_images.default.primary.cards[].card_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  card_image: prismic.ImageField<never>;
+
+  /**
+   * Card Title field in *ThreeRoundImages → Default → Primary → cards*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_round_images.default.primary.cards[].card_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  card_title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ThreeRoundImages → Default → Primary*
+ */
+export interface ThreeRoundImagesSliceDefaultPrimary {
+  /**
+   * Heading field in *ThreeRoundImages → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_round_images.default.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *ThreeRoundImages → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_round_images.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * cards field in *ThreeRoundImages → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: three_round_images.default.primary.cards[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cards: prismic.GroupField<
+    Simplify<ThreeRoundImagesSliceDefaultPrimaryCardsItem>
+  >;
+}
+
+/**
  * Default variation for ThreeRoundImages Slice
  *
  * - **API ID**: `default`
@@ -999,7 +1277,7 @@ export type ThreeContentCardsSlice = prismic.SharedSlice<
  */
 export type ThreeRoundImagesSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<ThreeRoundImagesSliceDefaultPrimary>,
   never
 >;
 
@@ -1160,6 +1438,8 @@ declare module "@prismicio/client" {
       HeroImageBackgroundSliceVariation,
       HeroImageBackgroundSliceDefault,
       ImageHeadingToggleSlice,
+      ImageHeadingToggleSliceDefaultPrimaryFaqItem,
+      ImageHeadingToggleSliceDefaultPrimary,
       ImageHeadingToggleSliceVariation,
       ImageHeadingToggleSliceDefault,
       InvestmentHeroSlice,
@@ -1172,6 +1452,7 @@ declare module "@prismicio/client" {
       MeetTeamSliceVariation,
       MeetTeamSliceDefault,
       MutedBackgroundContentSlice,
+      MutedBackgroundContentSliceDefaultPrimary,
       MutedBackgroundContentSliceVariation,
       MutedBackgroundContentSliceDefault,
       ReuseableCardsSlice,
@@ -1189,6 +1470,7 @@ declare module "@prismicio/client" {
       ScrollCardsSliceVariation,
       ScrollCardsSliceDefault,
       SideHeadingContentSlice,
+      SideHeadingContentSliceDefaultPrimary,
       SideHeadingContentSliceVariation,
       SideHeadingContentSliceDefault,
       StoryTestimonialsSlice,
@@ -1196,9 +1478,13 @@ declare module "@prismicio/client" {
       StoryTestimonialsSliceVariation,
       StoryTestimonialsSliceDefault,
       ThreeContentCardsSlice,
+      ThreeContentCardsSliceDefaultPrimaryCardsItem,
+      ThreeContentCardsSliceDefaultPrimary,
       ThreeContentCardsSliceVariation,
       ThreeContentCardsSliceDefault,
       ThreeRoundImagesSlice,
+      ThreeRoundImagesSliceDefaultPrimaryCardsItem,
+      ThreeRoundImagesSliceDefaultPrimary,
       ThreeRoundImagesSliceVariation,
       ThreeRoundImagesSliceDefault,
       UpdatedHeroSectionSlice,

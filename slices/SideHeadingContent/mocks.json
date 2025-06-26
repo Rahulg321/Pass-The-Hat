@@ -2,7 +2,33 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "from",
+				"type": "Text"
+			},
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Anim ea qui anim magna minim. Deserunt sunt proident occaecat duis aliquip dolore duis id qui proident culpa elit."
+						}
+					}
+				]
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"key": "af0233f6-b628-4a3d-a476-9720463f2a93",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "which"
+				}
+			}
+		},
 		"items": []
 	}
 ]

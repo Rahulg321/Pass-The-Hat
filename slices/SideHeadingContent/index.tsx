@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { PrismicNextLink } from "@prismicio/next";
 
 /**
  * Props for `SideHeadingContent`.
@@ -24,47 +25,27 @@ const SideHeadingContent: FC<SideHeadingContentProps> = ({ slice }) => {
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-16 xl:gap-20 items-start">
           {/* Left Column - Heading */}
           <div className="space-y-4">
-            <h1 className="">Your New Alternative Investment Platform</h1>
+            <h1 className="text-dark-blue md:text-center">
+              {slice.primary.heading}
+            </h1>
           </div>
 
           {/* Right Column - Content */}
           <div className="space-y-6 lg:space-y-8">
-            <div className="space-y-6 text-gray-600 text-base md:text-lg leading-relaxed">
-              <p>
-                Pass the Hat connects accredited U.S. investors with
-                high-potential private market opportunities once reserved for a
-                select few. Conventional alternative investment platforms are
-                aggregators of deals from several different sponsors. There, you
-                might find something of interest if you do a lot of digging and
-                are able to vet them yourself.
-              </p>
-
-              <p>
-                But that&apos;s{" "}
-                <em className="italic">tedious and time-consuming</em>. By the
-                time an opportunity ends up on Pass the Hat, you can be sure
-                it&apos;s been vetted. Each deal on Pass the Hat is sponsored by{" "}
-                <span className="font-semibold text-gray-900">
-                  Borgman Capital
-                </span>
-                , an investment firm with a sole focus on acquiring companies
-                and real estate properties with untapped potential.
-              </p>
-
-              <p>
-                Joining Pass the Hat is as simple as creating a profile. Once
-                approved, you&apos;ll have unrestricted access to the platform
-                so you can make an informed decision.
-              </p>
+            <div className="prose prose-sm">
+              <PrismicRichText field={slice.primary.content} />
             </div>
 
             <div className="pt-4">
               <Button
                 size="lg"
                 className="bg-sky-400 hover:bg-sky-500 text-white font-medium px-8 py-3 rounded-lg transition-colors duration-200 group"
+                asChild
               >
-                START INVESTING
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                <PrismicNextLink field={slice.primary.button_link}>
+                  {slice.primary.button_link.text}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </PrismicNextLink>
               </Button>
             </div>
           </div>

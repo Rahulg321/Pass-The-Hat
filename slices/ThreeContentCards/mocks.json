@@ -2,7 +2,70 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"cards": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"heading",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "blue",
+									"type": "Text"
+								}
+							],
+							[
+								"card_image",
+								{
+									"origin": {
+										"id": "main",
+										"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+										"width": 4160,
+										"height": 3120
+									},
+									"url": "https://images.unsplash.com/photo-1560457079-9a6532ccb118",
+									"width": 4160,
+									"height": 3120,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									},
+									"alt": "whenever",
+									"credits": null,
+									"__TYPE__": "ImageContent",
+									"thumbnails": {}
+								}
+							],
+							[
+								"content",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "darkness",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "creature",
+				"type": "Text"
+			},
+			"tagline": {
+				"__TYPE__": "FieldContent",
+				"value": "state",
+				"type": "Text"
+			}
+		},
 		"items": []
 	}
 ]

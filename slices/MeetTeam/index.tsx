@@ -20,7 +20,7 @@ const MeetTeam: FC<MeetTeamProps> = ({ slice }) => {
       <div className="big-container">
         {/* Header */}
         <div className="text-center mb-16">
-          <Heading size="md" className="text-[#19124B] font-bold">
+          <Heading size="sm" className="text-dark-blue font-bold">
             {slice.primary.heading}
           </Heading>
         </div>

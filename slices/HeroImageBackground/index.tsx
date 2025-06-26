@@ -14,7 +14,7 @@ const HeroImageBackground: FC<HeroImageBackgroundProps> = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative min-h-[80vh] flex items-center overflow-hidden"
+      className="relative min-h-[70vh] flex items-center overflow-hidden"
     >
       <PrismicNextImage
         field={slice.primary.background_image}
@@ -25,7 +25,9 @@ const HeroImageBackground: FC<HeroImageBackgroundProps> = ({ slice }) => {
 
       <div className="relative z-20 big-container">
         <div className="max-w-2xl space-y-4 md:space-y-6">
-          <Heading size="md">{slice.primary.heading}</Heading>
+          <Heading size="md" className="text-dark-blue">
+            {slice.primary.heading}
+          </Heading>
 
           <Heading size="xs" className="font-normal text-primary">
             {slice.primary.tagline}

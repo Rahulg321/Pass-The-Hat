@@ -10,7 +10,57 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {
+        "featured_image": {
+          "type": "Image",
+          "config": {
+            "label": "Featured Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "tagline": {
+          "type": "Text",
+          "config": {
+            "label": "Tagline",
+            "placeholder": ""
+          }
+        },
+        "faq": {
+          "type": "Group",
+          "config": {
+            "label": "faq",
+            "repeat": true,
+            "fields": {
+              "question": {
+                "type": "Text",
+                "config": {
+                  "label": "Question",
+                  "placeholder": ""
+                }
+              },
+              "answer": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Answer",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
     }
   ]
 }
