@@ -31,7 +31,7 @@ const UpdatedHeroSection: FC<UpdatedHeroSectionProps> = ({ slice }) => {
         />
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="">
-            <Heading size="md" className="text-[#19124B] font-bold">
+            <Heading size="md" className="text-dark-blue text-center font-bold">
               {slice.primary.heading}
             </Heading>
           </div>

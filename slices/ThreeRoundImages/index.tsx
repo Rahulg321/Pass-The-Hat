@@ -1,10 +1,6 @@
 import { FC } from "react";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
-import { PrismicNextLink } from "@prismicio/next";
 import { PrismicNextImage } from "@prismicio/next";
 
 /**
@@ -25,7 +21,6 @@ const ThreeRoundImages: FC<ThreeRoundImagesProps> = ({ slice }) => {
     >
       <div className="big-container">
         <div className="flex flex-col items-center text-center ">
-          {/* Main Heading */}
           <h1 className="text-dark-blue font-bold text-center">
             {slice.primary.heading}
           </h1>
@@ -37,10 +32,11 @@ const ThreeRoundImages: FC<ThreeRoundImagesProps> = ({ slice }) => {
                   className="flex flex-col items-center space-y-4"
                   key={index}
                 >
-                  <div className="relative w-full h-full">
+                  <div className="relative w-24 h-24 md:w-32 md:h-32 lg:w-64 lg:h-64 rounded-full overflow-hidden">
                     <PrismicNextImage
                       field={card.card_image}
-                      className="rounded-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <h3 className="text-lg md:text-xl font-semibold text-gray-600 tracking-wide">
